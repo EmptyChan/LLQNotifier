@@ -42,6 +42,21 @@ namespace Sample
             Function();
         }
 
+<<<<<<< HEAD
+=======
+        subscriber1 _s = new subscriber1();
+        void UnregisterTest()
+        {
+            LLQNotifier.Default.Notify(new Event1() { Flag = "test A"});
+            _s.Unregister();
+            LLQNotifier.Default.Notify(new Event1() { Flag = "test B" });
+            LLQNotifier.Default.Register(_s);
+            LLQNotifier.Default.Notify(new Event1() { Flag = "test C" });
+            _s.Unregister();
+
+        }
+
+>>>>>>> upstream/master
         void Function()
         {
             subscriber1 subscriber1 = new subscriber1();

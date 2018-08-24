@@ -33,12 +33,19 @@ namespace LLQ
 
         static SynchronizationContext _syncContext;
 
+<<<<<<< HEAD
         private readonly object _lockForSubscribersByType = new object();
 
         private readonly ConcurrentDictionary<Type, object> _locksForSubscription = new ConcurrentDictionary<Type, object>();
 
         private readonly object _lockForSubscribersList = new object();
 
+=======
+        private readonly object _lockForSubscribersWithType = new object();
+
+        private readonly ConcurrentDictionary<Type, object> _locksForSubscription = new ConcurrentDictionary<Type, object>();
+
+>>>>>>> upstream/master
         private ConcurrentDictionary<Type, List<Subscription>> _subscriptionDictByType = new ConcurrentDictionary<Type, List<Subscription>>();
 
         private ConditionalWeakTable<object, List<Type>> _subscriberDictWithType = new ConditionalWeakTable<object, List<Type>>();
@@ -87,6 +94,10 @@ namespace LLQ
                     RemoveSubscription(type, subscriber);
                 }
             }
+<<<<<<< HEAD
+=======
+            _subscriberDictWithType.Remove(subscriber);
+>>>>>>> upstream/master
         }
 
         void RemoveSubscription(Type eventType, object subscriber)
